@@ -41,7 +41,7 @@ A4B = A * A3B;
 
 A5B = A * A4B;
 
-C = [B, AB, A2B, A3B, A4B, A5B]
+C = [B, AB, A2B, A3B, A4B, A5B];
 
-rank(C)
+rank(C);
 det(C)
