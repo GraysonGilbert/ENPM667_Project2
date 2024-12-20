@@ -9,13 +9,6 @@ theta1Dot = sym("theta1Dot");
 theta2 = sym("theta2");
 theta2Dot = sym("theta2Dot");
 F = sym("F");
-M = sym("M");
-m1 = sym("m1");
-m2 = sym("m2");
-l1 = sym("l1");
-l2 = sym("l2");
-g = sym("g");
-
 
 g = 9.8;
 M = 1000;
@@ -63,21 +56,22 @@ rank(C_AB)
 det(C_AB)
 
 Q = [1, 0, 0, 0, 0, 0;
-     0, 5, 0, 0, 0, 0;
+     0, 1, 0, 0, 0, 0;
      0, 0, 100, 0, 0, 0;
      0, 0, 0, 100, 0, 0;
      0, 0, 0, 0, 100, 0;
      0, 0, 0, 0, 0, 100;];
 
-R = [0.0001];
+R = [0.00001];
 
 [K, S, P] = lqr(A, B, Q, R);
+K
 
 % create the state space representation for the linearized system
 sys = ss(A-B*K, B, C, []);
 
 %     x, xd, t1,  t1d,  t2,  t2d
-x0 = [0; 0; pi/10; 0; -pi/10; 0;];
+x0 = [1; 0; pi/2; 0; -pi/10; 0;];
 
 % Simulate and plot the initial condition response
 initial(sys, x0)
