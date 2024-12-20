@@ -1,4 +1,5 @@
-% PART D LQR
+% PART G LQG Controller
+% Run this file before running LQG_controller.slx
 
 clear
 
@@ -65,11 +66,6 @@ x0 = [1; 0; pi/2; 0; -pi/10; 0;];      % Initial system state
 x_hat0 = [0; 0; 0; 0; 0; 0;];  % Initial state estimate 
 
 
-
-
-
-
-
-
+% Environment is now ready to run LQG_controller.slx
 
 

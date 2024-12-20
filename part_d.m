@@ -1,4 +1,5 @@
 % PART D LQR
+% Run this script before running part_d_nonlinear.slx
 
 clear
 
@@ -77,3 +78,6 @@ x0 = [1; 0; pi/2; 0; -pi/10; 0;];
 
 % Simulate and plot the initial condition response
 initial(sys, x0)
+
+
+% Environment is now ready to run part_d_nonlinear.slx

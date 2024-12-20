@@ -1,4 +1,5 @@
 % PART F: LUENBERGER OBSERVER
+% Run this script before running part_f_nonlinear
 
 clear
 
@@ -289,3 +290,6 @@ title('Theta 2')
 xlabel('Time (s)');
 ylabel('Angle (rad)');
 legend('Theta2', 'Theta2 hat', 'Location', 'best');
+
+
+% Environment is now ready to run part_f_nonlinear.slx
