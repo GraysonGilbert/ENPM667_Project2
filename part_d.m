@@ -68,7 +68,9 @@ R = [0.00001];
 K
 
 % create the state space representation for the linearized system
+% sys = ss(A, B, C, [])
 sys = ss(A-B*K, B, C, []);
+
 
 %     x, xd, t1,  t1d,  t2,  t2d
 x0 = [1; 0; pi/2; 0; -pi/10; 0;];
