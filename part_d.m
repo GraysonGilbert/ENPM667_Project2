@@ -41,6 +41,11 @@ B = [0;
     0;
     1/(M*l2)];
 
+% Define our outputs as x, t1, and t2
+C = [1, 0, 0, 0, 0, 0;
+     0, 0, 1, 0, 0, 0;
+     0, 0, 0, 0, 1, 0];
+
 
 AB = A*B;
 
@@ -68,4 +73,11 @@ R = [0.0001];
 
 [K, S, P] = lqr(A, B, Q, R);
 
-K
+% create the state space representation for the linearized system
+sys = ss(A-B*K, B, C, []);
+
+%     x, xd, t1,  t1d,  t2,  t2d
+x0 = [0; 0; pi/10; 0; -pi/10; 0;];
+
+% Simulate and plot the initial condition response
+initial(sys, x0)
