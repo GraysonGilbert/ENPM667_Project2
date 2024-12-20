@@ -167,10 +167,10 @@ subplot(2, 1, 2)
 plot(t, y3(:, 2), 'LineWidth', 1);  % Second output
 hold on;
 plot(t_est, y3_est(:, 2), 'r--', 'LineWidth', 1);  % Second output
-title('Theta 1')
+title('Theta 2')
 xlabel('Time (s)');
 ylabel('Angle (rad)');
-legend('Theta1', 'Theta1 hat', 'Location', 'best');
+legend('Theta2', 'Theta2 hat', 'Location', 'best');
 
 % SIMULATION 3: OUTPUT VECTOR 1, WITH ONLY INITIAL CONDITIONS
 
@@ -208,3 +208,84 @@ xlabel('Time (s)');
 ylabel('Angle (rad)');
 legend('Theta2', 'Theta2 hat', 'Location', 'best');
 
+
+% SIMULATION 4: OUTPUT VECTOR 1, WITH STEP 
+
+[y1, t] = step(sys1, t);
+[y1_est, t_est] = lsim(obs_sys1,[u1; y1'], t);
+
+
+% Plot multiple outputs
+figure(4);
+
+plot(t, y1(:, 1), 'LineWidth', 1);  % First output
+hold on;
+plot(t_est, y1_est(:, 1), 'r--', 'LineWidth', 1);  % First output
+title('X')
+xlabel('Time (s)');
+ylabel('Distance (m)');
+legend('X', 'X hat', 'Location', 'best');
+
+
+
+% SIMULATION 5: OUTPUT VECTOR 3, WITH STEP
+
+[y3, t] = step(sys3, t);
+[y3_est, t_est] = lsim(obs_sys3,[u3; y3'], t);
+
+% Plot multiple outputs
+figure(5);
+
+subplot(2, 1, 1)
+plot(t, y3(:, 1), 'LineWidth', 1);  % First output
+hold on;
+plot(t_est, y3_est(:, 1), 'r--', 'LineWidth', 1);  % First output
+title('X')
+xlabel('Time (s)');
+ylabel('Distance (m)');
+legend('X', 'X hat', 'Location', 'best');
+
+subplot(2, 1, 2)
+plot(t, y3(:, 2), 'LineWidth', 1);  % Second output
+hold on;
+plot(t_est, y3_est(:, 2), 'r--', 'LineWidth', 1);  % Second output
+title('Theta 2')
+xlabel('Time (s)');
+ylabel('Angle (rad)');
+legend('Theta2', 'Theta2 hat', 'Location', 'best');
+
+% SIMULATION 6: OUTPUT VECTOR 1, WITH ONLY INITIAL CONDITIONS
+
+[y4, t] = step(sys4, t);
+[y4_est, t_est] = lsim(obs_sys4,[u4; y4'], t);
+
+
+% Plot multiple outputs
+figure(6);
+
+subplot(3, 1, 1)
+plot(t, y4(:, 1), 'LineWidth', 1);  % First output
+hold on;
+plot(t_est, y4_est(:, 1), 'r--', 'LineWidth', 1);  % First output
+title('X')
+xlabel('Time (s)');
+ylabel('Distance (m)');
+legend('X', 'X hat', 'Location', 'best');
+
+subplot(3, 1, 2)
+plot(t, y4(:, 2), 'LineWidth', 1);  % Second output
+hold on;
+plot(t_est, y4_est(:, 2), 'r--', 'LineWidth', 1);  % Second output
+title('Theta 1')
+xlabel('Time (s)');
+ylabel('Angle (rad)');
+legend('Theta1', 'Theta1 hat', 'Location', 'best');
+
+subplot(3, 1, 3)
+plot(t, y4(:, 3), 'LineWidth', 1);  % Third Output
+hold on;
+plot(t_est, y4_est(:, 3), 'r--', 'LineWidth', 1);  % Second output
+title('Theta 2')
+xlabel('Time (s)');
+ylabel('Angle (rad)');
+legend('Theta2', 'Theta2 hat', 'Location', 'best');
